@@ -84,15 +84,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+
     function displayMessage(role, content) {
+
         const messageDiv = document.createElement('div');
         messageDiv.classList.add(role);
-        messageDiv.textContent = content;
+
+        if (content.includes('```')) {
+            const parts = content.split('/```(?:w+)?\n?/');
+            let formattedContent = '';
+
+            for (let i =0; i < pafrts.length; i++){
+                if (i % 2 ===0){
+                    formattedContent += parts[i];
+                } else {
+                    formattedContent += `<pre><code>${parts[i]}</code></pre>`;
+                }
+            }
+            messageDiv.innerHTML = formattedContent;
+        } else {
+            messageDiv.textContent = content;    
+        }
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Load saved conversations
+
+    // load saved conversations
     fetch('/load_conversations')
         .then(response => response.json())
         .then(conversations => {
