@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Chat Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="message-input" placeholder="Type your message here...">
+        <button id="send-button">Send</button>
+        <button id="start-button">Start Conversation</button>
+        <button id="save-button">Save/End Conversation</button>
+    </div>
+    <div id="saved-chats">
+        <h3>Saved Chats</h3>
+        <ul id="saved-chats-list"></ul>
+    </div>
+    <div id="model-details">
+        <h3>Model Details</h3>
+        <select id="model-select">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

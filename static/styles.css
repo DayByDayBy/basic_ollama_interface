@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#chat-container {
+    width: 70%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#chat-box {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#message-input {
+    width: calc(100% - 120px);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#send-button, #new-chat-button {
+    padding: 10px 20px;
+}
+
+#saved-chats, #model-details {
+    width: 25%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#saved-chats-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#saved-chats-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
