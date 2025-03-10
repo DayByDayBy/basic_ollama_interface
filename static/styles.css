@@ -7,6 +7,10 @@
     --text-light: #6b7280;
     --border-color: #e5e7eb;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --green: #10b981;
+    --green-hover: #059669;
+    --amber: #f59e0b;
+    --amber-hover: #d97706;
   }
   
   body {
@@ -21,6 +25,7 @@
     gap: 20px;
   }
   
+  /* main chat section */
   #chat-container {
     width: 70%;
     background-color: var(--card-background);
@@ -31,11 +36,58 @@
     flex-direction: column;
   }
   
+  /* model selection area - initially visible, hidden when chat is active */
+  #model-selection-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #model-selection-area h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 600;
+  }
+  
+  #model-select-container {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #model-select {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    outline: none;
+  }
+  
+  #start-button {
+    background-color: var(--green);
+    min-width: 100px;
+  }
+  
+  #start-button:hover {
+    background-color: var(--green-hover);
+  }
+  
+  /* chat box - initially hidden, visible when chat is active */
   #chat-box {
     height: 400px;
     overflow-y: auto;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     background-color: var(--background-color);
     border-radius: 8px;
     display: flex;
@@ -43,7 +95,19 @@
     gap: 10px;
   }
   
-  /* message bubble styles */
+  /* current model indicator */
+  #current-model-indicator {
+    display: none;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    width: fit-content;
+  }
+  
+  /* message bubbles */
   .user, .model {
     max-width: 80%;
     padding: 12px 16px;
@@ -70,6 +134,7 @@
     margin-right: auto;
   }
   
+  /* input area */
   #message-input {
     padding: 12px 15px;
     border: 1px solid var(--border-color);
@@ -86,6 +151,7 @@
     box-shadow: 0 0 0 2px var(--primary-light);
   }
   
+  /* button styles */
   button {
     background-color: var(--primary-color);
     color: white;
@@ -107,22 +173,28 @@
     transform: translateY(1px);
   }
   
-  #start-button {
-    background-color: #10b981;
-  }
-  
-  #start-button:hover {
-    background-color: #059669;
+  .button-group {
+    display: flex;
+    gap: 10px;
   }
   
   #save-button {
-    background-color: #f59e0b;
+    background-color: var(--amber);
   }
   
   #save-button:hover {
-    background-color: #d97706;
+    background-color: var(--amber-hover);
   }
   
+  #new-chat-button {
+    background-color: var(--green);
+  }
+  
+  #new-chat-button:hover {
+    background-color: var(--green-hover);
+  }
+  
+  /* sidebar sections */
   #saved-chats, #model-details {
     width: 25%;
     background-color: var(--card-background);
@@ -141,6 +213,7 @@
     border-bottom: 1px solid var(--border-color);
   }
   
+  /* caved chats */
   #saved-chats-list {
     list-style-type: none;
     padding: 0;
@@ -160,17 +233,7 @@
     background-color: var(--primary-light);
   }
   
-  #model-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--card-background);
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  /* backtick formatting for model responses */
+  /* backtick code formatting */
   pre {
     background-color: #f1f5f9;
     padding: 12px;
@@ -189,7 +252,7 @@
     font-size: 14px;
   }
   
-  /* responsiveness */
+  /* responsiveness  */
   @media (max-width: 768px) {
     body {
       flex-direction: column;
@@ -198,5 +261,9 @@
     #chat-container, #saved-chats, #model-details {
       width: calc(100% - 40px);
       margin-bottom: 20px;
+    }
+    
+    #model-select-container {
+      flex-direction: column;
     }
   }
