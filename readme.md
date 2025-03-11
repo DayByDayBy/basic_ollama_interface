@@ -77,3 +77,7 @@ Feel free to contribute to this project by opening issues or submitting pull req
 ---
 
 Enjoy chatting with your Ollama models! If you have any questions or need further assistance, feel free to reach out.
+
+
+
+
